@@ -18,6 +18,9 @@ gem "redis", ">= 4.0.1"
 # Use Active Model has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
+# Encode and decode JWTs for token-based authentication.
+gem 'jwt', '~> 2.0'
+
 # Dotenv for managing environment variables
 gem 'dotenv-rails'
 
@@ -29,6 +32,10 @@ gem "bootsnap", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
+
+group :test do
+  gem 'timecop'
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -42,5 +49,3 @@ group :development, :test do
   gem 'fabrication'
   gem 'rubocop'
 end
-
-
