@@ -16,7 +16,7 @@ gem "redis", ">= 4.0.1"
 # gem "kredis"
 
 # Use Active Model has_secure_password
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Encode and decode JWTs for token-based authentication.
 gem 'jwt', '~> 2.0'
@@ -49,4 +49,5 @@ group :development, :test do
   gem 'fabrication'
   gem 'faker'
   gem 'rubocop'
+  gem 'dotenv-rails'
 end
