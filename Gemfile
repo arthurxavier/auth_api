@@ -38,6 +38,9 @@ group :development, :test do
   # Code Quality
   gem "rubocop"
   gem "rubocop-rails-omakase", require: false
+
+  # Security analysis
+  gem "brakeman"
 end
 
 group :test do
