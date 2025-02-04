@@ -15,6 +15,6 @@ class User < RedisRecord
 
   def save
     prepare_for_save  # Chama o "callback" manualmente antes de salvar
-    self.class.set(attributes)
+    super
   end
 end
