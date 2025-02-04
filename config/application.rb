@@ -36,7 +36,7 @@ module AuthApi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.time_zone = 'Pacific Time (US & Canada)' # Vancouver segue o Pacific Time
+    config.time_zone = "Pacific Time (US & Canada)" # Vancouver segue o Pacific Time
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.

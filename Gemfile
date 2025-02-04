@@ -3,51 +3,43 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 
-# Use the Puma web server [https://github.com/puma/puma]
+# Web Server
 gem "puma", ">= 5.0"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# JSON API Builder
 gem "jbuilder"
 
-# Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+# Authentication & Security
+gem "bcrypt", "~> 3.1.7" # Secure passwords
+gem "jwt", "~> 2.0"      # Token-based authentication
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+# Database & Caching
+gem "redis", ">= 4.0.1"  # Redis adapter for Action Cable, caching, etc.
 
-# Use Active Model has_secure_password
-gem "bcrypt", "~> 3.1.7"
+# Environment Variables
+gem "dotenv-rails"
 
-# Encode and decode JWTs for token-based authentication.
-gem 'jwt', '~> 2.0'
+# Timezone Data (for Windows & JRuby)
+gem "tzinfo-data", platforms: %i[windows jruby]
 
-# Dotenv for managing environment variables
-gem 'dotenv-rails'
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-# gem "rack-cors"
-
-group :test do
-  gem 'timecop'
-end
+# Performance Optimization
+gem "bootsnap", require: false # Reduces boot times
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem 'byebug'
+  # Debugging Tools
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
+  gem "byebug"
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  # Testing Framework
+  gem "rspec-rails"
+  gem "fabrication"
+  gem "faker"
+
+  # Code Quality
+  gem "rubocop"
   gem "rubocop-rails-omakase", require: false
+end
 
-  gem 'rspec-rails'
-  gem 'fabrication'
-  gem 'faker'
-  gem 'rubocop'
-  gem 'dotenv-rails'
+group :test do
+  gem "timecop" # Freezes time for predictable test behavior
 end
