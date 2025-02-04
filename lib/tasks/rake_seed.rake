@@ -1,15 +1,16 @@
 namespace :db do
   desc "Populate Redis with seed data"
-  task :seed => :environment do
-    user_data = {
-      username: 'john',
-      password: 'Password#123'
-    }
+  task seed: :environment do
+    users = [
+      { username: "john_doe", password: "Password#123" },
+      { username: "jane_doe", password: "Strong_Password$456" },
+      { username: "alice_smith", password: "$Password#789!" },
+      { username: "bob_jones", password: "SecurePass#101112" }
+    ]
 
-    user_id = $redis.incr('user_id_counter')
-
-    $redis.set("user:#{user_id}", user_data.to_json)
-
-    puts "User #{user_data[:username]} created in Redis with ID #{user_id}!"
+    users.each do |user_data|
+      user = User.create(username: user_data[:username], password: user_data[:password])
+      puts "User #{user.username} created in Redis!"
+    end
   end
 end
