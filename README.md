@@ -32,7 +32,7 @@ Additionally, the implementation should prioritize simplicity over cleverness, l
 5. **Add JWT-based authentication** ✅
 6. **Write RSpec tests for all API endpoints** ✅
 7. **Containerize the application using Docker** ✅
-8. **Improve security with password policies and rate limiting** (doing)
+8. **Improve security with password policies and rate limiting** ✅
 
 ## How to Run the Project
 
@@ -68,6 +68,7 @@ Additionally, the implementation should prioritize simplicity over cleverness, l
 
 As the system evolves, several new features and enhancements will be considered for future implementation:
 
+- **Remove literal password**: Save only the encrypted password in user attributes.
 - **Password Confirmation**: Ensure users must confirm their password during registration to prevent errors.
 - **Password Expiry**: Introduce password expiration after a certain time period, prompting users to reset their passwords periodically for added security.
 - **Password History**: Restrict users from reusing one of their last 5 passwords, enforcing better password hygiene and improving security.
@@ -108,12 +109,12 @@ In the case of our user login and registration system, the main flows are:
 - **Login**:
   - Searches for the username and validates the password (individual search).
 
-Since the system will have more logins than registrations (especially because users will be logged out after a while), it makes more sense to prioritize individual searches. Therefore, I decided to store each user in a separate key in the format `user:<class>:<id>`.
+Since the system will have more logins than registrations (especially because users will be logged out after a while), it makes more sense to prioritize individual searches. Therefore, I decided to store each user in a separate key in the format `<class>:<identifier>`.
 
 ### Final Structure:
 ```
-user:User:bob_doe -> "{"username": "bob_doe", "password_hash": "$2a$12$3aceHqD3d7b0BnZFRzgbUOR3", "created_at": 1738630522, "updated_at": 1738630522 }"
-user:User:alice_smith -> "{"username": "alice_smith", "password_hash": "ZFRzgbUOR3F1wgMu8I19wK", created_at: 1738630652, "updated_at": 1738636722}"
+user:bob_doe -> "{"username": "bob_doe", "password_hash": "$2a$12$3aceHqD3d7b0BnZFRzgbUOR3", "created_at": 1738630522, "updated_at": 1738630522 }"
+user:alice_smith -> "{"username": "alice_smith", "password_hash": "ZFRzgbUOR3F1wgMu8I19wK", created_at: 1738630652, "updated_at": 1738636722}"
 ```
 
 #### Advantages:

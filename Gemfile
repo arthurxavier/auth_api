@@ -39,7 +39,7 @@ group :development, :test do
   gem "rubocop"
   gem "rubocop-rails-omakase", require: false
 
-  # Security analysis
+  # Security/Vulnerability analysis
   gem "brakeman"
 end
 
