@@ -28,7 +28,7 @@ class RedisRecord
   end
 
   def self.redis_key(value)
-    "#{self.name.downcase}:#{value}"  #Example: "user:john_doe"
+    "#{self.name.downcase}:#{value}"  # Example: "user:john_doe"
   end
 
   def self.set(attributes)
