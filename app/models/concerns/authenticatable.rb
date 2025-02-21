@@ -37,7 +37,6 @@ module Authenticatable
 
   def prepare_for_save
     # Encrypt the password before saving
-    # TODO: Implements before_save callback
     encrypt_password
   end
 

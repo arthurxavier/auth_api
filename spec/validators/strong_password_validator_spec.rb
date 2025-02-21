@@ -1,4 +1,3 @@
-# spec/validators/strong_password_validator_spec.rb
 require 'rails_helper'
 
 RSpec.describe StrongPasswordValidator, type: :validator do
