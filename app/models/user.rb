@@ -8,13 +8,14 @@ class User < RedisRecord
   identifier :username
 
   validates :username, presence: true, uniqueness: true
+  validates :password, strong_password: true
 
   def attributes
     { username: @username, password_hash: @password_hash, password: @password }
   end
 
   def save
-    prepare_for_save  # Chama o "callback" manualmente antes de salvar
+    prepare_for_save
     super
   end
 end
