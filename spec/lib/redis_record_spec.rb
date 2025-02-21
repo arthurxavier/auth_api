@@ -76,12 +76,6 @@ RSpec.describe RedisRecord, type: :lib do
         expect(TestRecord.redis_key("john_doe")).to eq("testrecord:john_doe")
       end
     end
-
-    context "when calling the method without an argument" do
-      it "returns the key for all records" do
-        expect(TestRecord.redis_key).to eq("testrecord:all")
-      end
-    end
   end
 
   describe ".set" do

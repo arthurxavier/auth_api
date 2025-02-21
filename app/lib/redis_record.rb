@@ -1,6 +1,6 @@
 # RedisRecord is a base class for models that use Redis as data store.
 # It provides methods to save, retrieve, update, and delete records in Redis,
-# mimicking an ActiveRecord-like interface.
+# simulating an ActiveRecord-like interface.
 #
 # Example usage:
 #
@@ -27,12 +27,8 @@ class RedisRecord
     _identifier
   end
 
-  def self.redis_key(value = nil)
-    if value
-      "#{self.name.downcase}:#{value}"  # Exemplo: "user:1"
-    else
-      "#{self.name.downcase}:all"  # Exemplo: "user:all" para todos os registros
-    end
+  def self.redis_key(value)
+    "#{self.name.downcase}:#{value}"  #Example: "user:john_doe"
   end
 
   def self.set(attributes)
